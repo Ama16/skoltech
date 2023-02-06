@@ -1,6 +1,8 @@
 import numpy as np
 from etna.analysis.utils import prepare_axes
+
 from FACI.compute_beta import computeConfInt
+
 
 def plot_coverage_level(ax, fixed_error, mean_error, adapt_error, alpha=0.1, to_use=150):
     mean_error = [1-np.mean(mean_error[i:i+to_use]) for i in range(len(mean_error)-to_use+1)]

@@ -1,10 +1,12 @@
-import pandas as pd
-import numpy as np
-from etna.pipeline import Pipeline
-from etna.models import SeasonalMovingAverageModel
-from etna.metrics import MAE, MAPE
-from tqdm import tqdm
 import warnings
+
+import numpy as np
+import pandas as pd
+from etna.metrics import MAE, MAPE
+from etna.models import SeasonalMovingAverageModel
+from etna.pipeline import Pipeline
+from tqdm import tqdm
+
 warnings.filterwarnings('ignore')
 
 

@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def pinball(u, alpha):
     u = np.array(u)
     return alpha*u - (u < 0) * u

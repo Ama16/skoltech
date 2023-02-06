@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def findBeta(recentScores, curScore, epsilon=0.001):
     top = 1
     bot = 0
