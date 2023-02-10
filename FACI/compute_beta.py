@@ -23,9 +23,10 @@ def computeBetasByGeoByTime(scores, lookback=100, epsilon=0.001, geosToUse=None,
     
     betaSeqMat = np.zeros((len(geosToUse), len(dates)-lookback))
     for t in range(lookback, len(dates)):
-        prevScores = scores[scores["timestamp"] < dates[t]][col2use].values
+        right_idx = scores["timestamp"] < dates[t]
         for i in range(len(geosToUse)):
             newScore = scores[(scores["timestamp"] == dates[t]) & (scores["segment"] == geosToUse[i])][col2use].values
+            prevScores = scores[(right_idx) & (scores["segment"] == geosToUse[i])][col2use].values
             if len(newScore) > 0:
                 betaSeqMat[i][t-lookback] = findBeta(prevScores, newScore, epsilon)
             else:
